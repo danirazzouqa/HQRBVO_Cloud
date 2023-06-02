@@ -1,11 +1,11 @@
 module "files" {
-  source  = "./modules/files"
+  source  = "./modules/Files"
   content = "test"
   filename    = "filename"
 }
 
 module "read" {
-  source        = "./modules/read"
+  source        = "./modules/Read"
   read_variable = tostring(module.files.example_output[0])
 }
 
@@ -18,7 +18,7 @@ locals {
 }
 
 module "write" {
-  source = "./modules/write"
+  source = "./modules/Write"
 
   answer_1 = trim(split("=", split("\n", local.answers)[0])[1], "\"\n")
   answer_2 = trim(split("=", split("\n", local.answers)[1])[1], "\"\n")
